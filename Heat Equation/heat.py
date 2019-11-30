@@ -13,8 +13,6 @@ Forensic Analysis: Mishiko Okropiridze
 import numpy as np
 
 # building the program from exact solution artifically
-
-
 def f(x: float, t: float) -> float:
 	# NOTE: CHANGE THIS GIVEN YOUR FUNCTION
 	return -2*(-t**2 + t**3 + 3*x**2 + t*x**2)/(t**2 + x**2+1)**3
@@ -27,14 +25,12 @@ def miu_1(x_initial: float, m: int):
 	res = np.zeros(shape=m)
 	for t in range(m):
 		res[t] = u_exact(x_initial, t)
-
 	return res
 
 def miu_2(x_final: float, m: int):
 	res = np.zeros(shape=m)
 	for t in range(m):
 		res[t] = u_exact(x_final, t)
-
 	return res
 
 def u_zero(t_initial: int, n: int):
@@ -50,16 +46,14 @@ def approx_differential(tau: float, h: float, t_0: float =0, t_1: float = 2, x_0
 	assert x_f > x_0
 	assert tau/h**2 <= 0.5
 
-	alpha = tau/h**2
 	m = int((t_1 - t_0)//tau)
-
 	n = int((x_f - x_0)//h)
 
+	alpha = tau/h**2
 	beta = 1 - 2*alpha
 
 	y = np.zeros(shape=(m, n))
 	
-
 	# boundary conditions
 	y.T[0] = miu_1(x_0, m)
 	y.T[n-1] = miu_2(x_f, m)
@@ -69,7 +63,6 @@ def approx_differential(tau: float, h: float, t_0: float =0, t_1: float = 2, x_0
 	for i in range(1, n-1):
 		for j in range(m-2):
 			y[j+1][i] = alpha * y[j+1][i+1] + beta*y[j][i-1] + tau*f(i, j)
-
 	return y
 
 if __name__ == '__main__':
@@ -80,5 +73,4 @@ if __name__ == '__main__':
 	for i, column in enumerate(approximated):
 		for j, val in enumerate(column):
 			average_er += abs(val - u_exact(j, i))
-
 	print(average_er/(n*m))
