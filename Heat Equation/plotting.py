@@ -9,7 +9,6 @@ def plot_exact(x_lin, t_lin, plt_num, exact_func):
 	t = np.linspace(*t_lin, plt_num)
 	X, T = np.meshgrid(x, t)
 	Z = exact_func(X, T)
-	print(Z.shape)
 	fig = plt.figure()
 	ax = plt.axes(projection='3d')
 	ax.plot_surface(X, T, Z, rstride=1, cstride=1,cmap='viridis', edgecolor='none')
