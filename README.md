@@ -1,3 +1,14 @@
 # Numerical-Analysis
 
-build cpp: llvm-g++ <filename>.cpp -o <output file name>
+### python:
+     $ pip install -r requirements.txt
+     
+##### Conda:
+
+    $ conda create --name <env> --file <this file>
+    
+  
+
+### c++ :
+    $ llvm-g++ <filename>.cpp -o <output file name>
+
