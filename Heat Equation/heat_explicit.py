@@ -36,7 +36,7 @@ def factorization_method(tau: float, h: float, t_0: int = 0, t_1: int = 2, x_0: 
         # computing beta given j-th layer
         beta[0] = y[j][n - 1]
         for i in range(1, n):
-            _F = -y[j][i - 1] - tau * f(x_0 + (i - 1) * h, t_0 + (j + 1) * h)
+            _F = -y[j][i - 1] - tau * f(x_0 + (i - 1) * h, t_0 + (j + 1) * tau)
             beta[i] = (gamma * beta[i - 1] - _F) / (c - gamma * alpha[i - 1])
 
         for i in range(n - 2, 0, -1):
