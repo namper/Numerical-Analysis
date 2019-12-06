@@ -37,6 +37,6 @@ def approx_differential(tau: float, h: float, t_0: int = 0, t_1: int = 2, x_0: i
 
 
 if __name__ == '__main__':
-    approximated = approx_differential(tau=0.02, h=0.25)
+    approximated = approx_differential(tau=0.001, h=0.1)
     from utils import check_error
     print(check_error(approximated, u_exact))

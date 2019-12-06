@@ -4,7 +4,7 @@ import numpy as np
 from heat_equation import u_zero, miu_1, miu_2, f, u_exact
 
 
-def factorization_method(tau: float = 0.02, h: float = 0.25, t_0: int = 0, t_1: int = 2, x_0: int = -2,
+def factorization_method(tau: float, h: float, t_0: int = 0, t_1: int = 2, x_0: int = -2,
                          x_f: int = 2):
     assert t_1 > t_0
     assert x_f > x_0
